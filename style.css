@@ -1,7 +1,20 @@
+@font-face {
+  font-family: 'KharkivTone';
+  src: url('Font.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  font-size: 20px;
+  font-family: KharkivTone, sans-serif;
+}
+html {
+  background: linear-gradient(to right top, #2f6159 10%, #141414 90%);
+  min-height: 100vh;
+}
 body {
-  font-family: Arial, sans-serif;
-  background-color: #eee;
-  margin: 20px;
+  margin-left: 2em;
 }
 
 header {
@@ -10,16 +23,29 @@ header {
 }
 
 h1 {
-  color: #333;
+  color: #e5e5e5;
+  font-size: xx-large;
 }
 
 #taskInput {
   padding: 8px;
+  background-color: transparent;
+  color: #e5e5e5;
+
+  &::placeholder {
+    transition: 500ms;
+  }
+  &:focus::placeholder {
+    transition: 500ms;
+    transform: scale(0.1);
+    opacity: 0;
+  }
 }
 
 #addButton {
-  padding: 8px;
-  cursor: pointer;
+  white-space: nowrap;
+  width: fit-content;
+  cursor: default;
 }
 
 ul {
@@ -31,11 +57,9 @@ li {
   display: flex;
   align-items: center;
   margin-bottom: 10px;
-  font-size: large;
 }
 
-
-input[type="checkbox"] {
+input[type='checkbox'] {
   appearance: none;
   margin: 0.5em;
   font: inherit;
@@ -45,13 +69,12 @@ input[type="checkbox"] {
   border: 0.15em solid currentColor;
   border-radius: 0.15em;
   transform: translateY(-0.075em);
-
   display: grid;
   place-content: center;
 }
 
-input[type="checkbox"]::before {
-  content: "";
+input[type='checkbox']::before {
+  content: '';
   width: 0.65em;
   height: 0.65em;
   clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
@@ -59,43 +82,81 @@ input[type="checkbox"]::before {
   transform-origin: bottom left;
   transition: 120ms transform ease-in-out;
   box-shadow: inset 1em 1em var(--form-control-color);
-  background-color: CanvasText;
+  background-color: #e5e5e5;
 }
 
-input[type="checkbox"]:checked::before {
+input[type='checkbox']:checked::before {
   transform: scale(1);
 }
 
-input[type="checkbox"]:focus {
+input[type='checkbox']:focus {
   outline: max(2px, 0.15em) solid currentColor;
   outline-offset: max(2px, 0.15em);
 }
 
-span {
-  cursor: pointer;
+span,
+:hover {
+  cursor: default;
 }
 
 button {
+  white-space: nowrap;
+  width: fit-content;
+  height: 3em;
   margin-left: 1em;
-  padding: 5px;
+  padding: 1.2em 2em 2em 2em;
   cursor: pointer;
-  color: #666;
-  border: none;
-  border-radius: 5px;
+  color: #e5e5e5;
+  background-color: rgba(0%, 0%, 0%, 0);
+  border: 1px solid #e5e5e5;
+  border-radius: 50px;
 }
 
-button:hover{
+button:hover {
   transition: 600ms;
-  background-color: #f31919;
-  color:#fff
+  background-color: #6bd8c7;
+  color: #e5e5e5;
 }
 
-button.add{
-  background-color: rgb(105, 27, 158);
-  color:#fff
+button.add {
+  color: #e5e5e5;
+  transition: 600ms;
+}
+button.add:hover {
+  transition: 600ms;
+  background-color: #6bd8c7;
 }
 
-button:disabled{
-  background-color: #363030;
+button:disabled:hover,
+button:disabled {
+  transition: 600ms;
+  background-color: #4e4e4e;
+}
 
+.task {
+  box-sizing: border-box;
+  width: fit-content;
+  padding: 1em 1em;
+  border-radius: 2em;
+  border: 1px solid #6bd8c7;
+  color: #e5e5e5;
+}
+
+button.delete-button:hover {
+  background-color: #d0485d;
+}
+
+input[type='text'] {
+  padding: 8px;
+  background-color: transparent;
+  color: #e5e5e5;
+
+  &::placeholder {
+    transition: 500ms;
+  }
+  &:focus::placeholder {
+    transition: 500ms;
+    transform: scale(0.1);
+    opacity: 0;
+  }
 }
