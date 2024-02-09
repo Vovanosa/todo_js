@@ -32,7 +32,6 @@ function createTask(taskText, isCompleted, deadline) {
   taskTextSpan.addEventListener('click', () =>
     toggleTaskStatusByText(taskTextSpan, checkBox)
   );
-  toggleTaskStatus(taskTextSpan, checkBox);
 
   const deleteButton = document.createElement('button');
   deleteButton.classList.add('delete-button');
